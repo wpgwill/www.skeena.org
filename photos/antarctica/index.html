@@ -1,0 +1,245 @@
+---
+layout: page
+title: Antarctica
+description: Photos from Antarctica.
+sitemap: true
+---
+
+<style>
+  .antarctica-gallery {
+    --ice: #f6fbff;
+    --ink: #17212b;
+    --muted: #5d6b77;
+    --line: rgba(23, 33, 43, 0.14);
+    margin-top: 1.5rem;
+    color: var(--ink);
+  }
+
+  .antarctica-hero {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0 0 1.75rem;
+  }
+
+  .antarctica-hero img {
+    width: 100%;
+    max-height: 68vh;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 18px 45px rgba(23, 33, 43, 0.18);
+  }
+
+  .antarctica-intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .antarctica-intro p {
+    max-width: 42rem;
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .antarctica-count {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .antarctica-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.55rem;
+    margin-top: 1rem;
+  }
+
+  .antarctica-tile {
+    position: relative;
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--ice);
+    box-shadow: 0 0 0 1px rgba(23, 33, 43, 0.08);
+  }
+
+  .antarctica-tile:focus {
+    outline: 3px solid #4fb1ba;
+    outline-offset: 3px;
+  }
+
+  .antarctica-tile img,
+  .antarctica-tile video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 180ms ease, filter 180ms ease;
+  }
+
+  .antarctica-tile:hover img,
+  .antarctica-tile:hover video {
+    transform: scale(1.035);
+    filter: saturate(1.05);
+  }
+
+  .antarctica-video {
+    margin-top: 2rem;
+  }
+
+  .antarctica-video h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .antarctica-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(8, 13, 18, 0.92);
+  }
+
+  .antarctica-lightbox[aria-hidden="false"] {
+    display: flex;
+  }
+
+  .antarctica-lightbox img {
+    max-width: min(96vw, 1600px);
+    max-height: 92vh;
+    border-radius: 4px;
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
+  }
+
+  .antarctica-close {
+    position: fixed;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    font: inherit;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .antarctica-close:focus {
+    outline: 3px solid #4fb1ba;
+    outline-offset: 3px;
+  }
+
+  @media (min-width: 44rem) {
+    .antarctica-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .antarctica-tile:nth-child(7n + 1),
+    .antarctica-tile:nth-child(11n + 6) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  @media (max-width: 28rem) {
+    .antarctica-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<section class="antarctica-gallery" aria-label="Antarctica photo gallery">
+  <div class="antarctica-hero">
+    <a href="images/antarctica-001.jpg" class="antarctica-feature" data-full="images/antarctica-001.jpg">
+      <img src="images/antarctica-001.jpg" alt="Antarctica seascape" loading="eager">
+    </a>
+    <div class="antarctica-intro">
+      <p>Ice, water, weather, and wildlife from the far south.</p>
+      <p class="antarctica-count">64 photos, 5 videos</p>
+    </div>
+  </div>
+
+  <div class="antarctica-grid">
+    {% for i in (1..64) %}
+      {% if i < 10 %}
+        {% assign num = i | prepend: '00' %}
+      {% elsif i < 100 %}
+        {% assign num = i | prepend: '0' %}
+      {% else %}
+        {% assign num = i %}
+      {% endif %}
+      <a class="antarctica-tile" href="images/antarctica-{{ num }}.jpg" data-full="images/antarctica-{{ num }}.jpg">
+        <img src="thumbs/antarctica-{{ num }}-thumb.jpg" alt="Antarctica photo {{ i }}" loading="lazy">
+      </a>
+    {% endfor %}
+  </div>
+
+  <div class="antarctica-video">
+    <h2>Videos</h2>
+    <div class="antarctica-grid">
+      {% for i in (1..5) %}
+        {% if i < 10 %}
+          {% assign num = i | prepend: '00' %}
+        {% elsif i < 100 %}
+          {% assign num = i | prepend: '0' %}
+        {% else %}
+          {% assign num = i %}
+        {% endif %}
+        <a class="antarctica-tile" href="videos/antarctica-video-{{ num }}.mp4">
+          <video src="videos/antarctica-video-{{ num }}.mp4" preload="metadata" muted playsinline></video>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="antarctica-lightbox" aria-hidden="true">
+  <button class="antarctica-close" type="button" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
+
+<script>
+  (function () {
+    var lightbox = document.querySelector('.antarctica-lightbox');
+    if (!lightbox) return;
+
+    var image = lightbox.querySelector('img');
+    var close = lightbox.querySelector('.antarctica-close');
+    var links = document.querySelectorAll('[data-full]');
+
+    function openLightbox(event) {
+      event.preventDefault();
+      image.src = this.getAttribute('data-full');
+      image.alt = this.querySelector('img').alt || 'Antarctica photo';
+      lightbox.setAttribute('aria-hidden', 'false');
+      close.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.setAttribute('aria-hidden', 'true');
+      image.src = '';
+    }
+
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('click', openLightbox);
+    });
+
+    close.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeLightbox();
+    });
+  }());
+</script>
