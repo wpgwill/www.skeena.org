@@ -1,0 +1,78 @@
+.sidebar-bg::after {
+  background:
+    linear-gradient(180deg, rgba(9, 24, 30, 0.12) 0%, rgba(9, 24, 30, 0.74) 78%),
+    linear-gradient(90deg, rgba(9, 24, 30, 0.22), rgba(9, 24, 30, 0.02));
+}
+
+.sidebar-about > h1,
+.sidebar-about > h2,
+.sidebar-about .h1 {
+  letter-spacing: 0;
+}
+
+.sidebar-about p {
+  max-width: 15rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+a.sidebar-nav-item {
+  width: fit-content;
+  padding: 0.2rem 0;
+  border-bottom-color: rgba(255, 255, 255, 0.24);
+}
+
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item.active {
+  border-bottom-color: #fff;
+}
+
+.content {
+  background:
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.08), transparent 24rem),
+    linear-gradient(180deg, #fffdf8 0%, #f8faf9 100%);
+}
+
+.page-title,
+.post-title {
+  color: #132026;
+}
+
+.page > header {
+  margin-bottom: 1.5rem;
+}
+
+.message {
+  border-left: 4px solid #0f766e;
+  border-radius: 0 6px 6px 0;
+  color: #516069;
+  background: rgba(15, 118, 110, 0.08);
+}
+
+.related-posts > li {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(19, 32, 38, 0.08);
+}
+
+.related-posts > li:last-child {
+  border-bottom: 0;
+}
+
+.post-date {
+  color: #717b82;
+  font-size: 0.88rem;
+  letter-spacing: 0;
+}
+
+.content img {
+  border-radius: 6px;
+}
+
+hr,
+.hr {
+  border-color: rgba(19, 32, 38, 0.12);
+}
+
+footer {
+  color: #717b82;
+}

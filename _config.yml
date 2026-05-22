@@ -2,9 +2,9 @@
 # ========================================================================================
 
 # IMPORTANT: Set the URL of your site.
-# Set to https://<username>.github.io when hosting on GitHub Pages
+# Set to your GitHub Pages or custom domain URL.
 # (unless you are using a custom domain).
-url:                   https://domain.tld
+url:                   https://www.skeena.org
 
 # IMPORTANT: Set The "base URL" of your site.
 #
@@ -13,7 +13,7 @@ url:                   https://domain.tld
 # Use the empty string '' otherwise.
 #
 # When using GitHub Pages, set to '' when hosting a user- or organization page,
-# i.e. when the name of the repository looks like <username>.github.io.
+# i.e. when the repository is a user or organization Pages site.
 # Otherwise, set to /<name of repository> (with leading /, but without the < >).
 baseurl:               ''
 
@@ -22,15 +22,16 @@ baseurl:               ''
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 RTW Blog
+title:                 Skeena
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
- Some travel blog
+  Travel notes, bike trips, and photo galleries from Will.
 
 # A shorter description for the sidebar.
 tagline:               >
+  Travel notes and photos from the road.
 
 # A list of keywords for your blog
 keywords:              []
@@ -42,12 +43,11 @@ logo:                  /assets/icons/icon.png
 # Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
 author:
   name:                Will
-  email:               <mail@domain.tld>
+  email:
   # Used by `jekyll-seo-tag`:
-  # twitter:             <username>
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2017. All rights reserved.
+copyright:             © Will. All rights reserved.
 
 # Add links to the footer.
 # Typically you'll want to link to your impress, cookies or privacy policy, etc.
@@ -69,18 +69,18 @@ paginate_path:         /page-:num/
 # ========================================================================================
 
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg.jpg
-accent_color:          '#4fb1ba'
+accent_image:          /assets/img/sidebar-antarctica.jpg
+accent_color:          '#0f766e'
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://qwtel.com/hydejack/docs/configuration/>
-google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
+google_fonts:          Merriweather:700|Source+Sans+3:400,400i,600,700
 
 # The text font. Expects a string that is a valid CSS font-family value.
-font:                  Noto Sans, Helvetica, Arial, sans-serif
+font:                  "'Source Sans 3', Helvetica, Arial, sans-serif"
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
-font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
+font_heading:          "'Merriweather', Georgia, serif"
 
 # 3rd Party Integrations
 # ----------------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ collections:
 
   featured_tags:
     permalink:         /tag/:name/
-    output:            true
+    output:            false
 
   projects:
     permalink:         /projects/:path/
@@ -165,6 +165,11 @@ collections:
 
 exclude:
   - vendor
+  - docs
+  - forms-by-example.md
+  - README.md
+  - CHANGELOG.md
+  - NOTICE.md
   - Gemfile
   - Gemfile.lock
   - node_modules
@@ -225,8 +230,6 @@ plugins:
 # social:
 #   name:                <firstname> <lastname>
 #   links:
-#     - https://twitter.com/<username>
-#     - https://github.com/<username>
 
 
 # Other Plugins

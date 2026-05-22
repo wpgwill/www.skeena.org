@@ -5,6 +5,8 @@ date: 2014-04-27T16:19:36+00:00
 author: WIll
 layout: page
 guid: https://www.skeena.org/blog/?page_id=14
+menu: true
+order: 4
 ---
 My photos from previous trips are available on Flickr:
 
